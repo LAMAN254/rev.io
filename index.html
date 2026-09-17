@@ -133,11 +133,11 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 }
 .btn-primary:hover{background:var(--text);}
 .hero-figure{
-  aspect-ratio:4/5; background:var(--surface-2); border:1px solid var(--border);
+  aspect-ratio:4/5; background:transparent; border:none;
   display:flex; align-items:center; justify-content:center; position:relative;
 }
-.hero-figure img{width:100%; height:100%; object-fit:cover;}
-@media (max-width:840px){ .hero-inner{grid-template-columns:1fr;} .hero-figure{order:-1;} }
+.hero-figure img{width:100%; height:100%; object-fit:contain;}
+@media (max-width:400px){ .hero-inner{grid-template-columns:1fr;} .hero-figure{order:-1;} }
  
 /* ---------------- IMAGE / MEDIA PLACEHOLDERS ---------------- */
 .placeholder{
@@ -160,12 +160,12 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 @media (max-width:620px){ .subjects-grid{grid-template-columns:1fr;} }
  
 .subject-card{
-  background:var(--surface); border:1px solid var(--border);
-  display:flex; flex-direction:column; overflow:hidden;
+  background:transparent; border:none;
+  display:flex; flex-direction:column; overflow:visible;
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.subject-card:hover{transform:translateY(-4px); box-shadow:0 14px 30px var(--shadow);}
-.subject-card .thumb{aspect-ratio:16/10; background:var(--surface-2);}
+.subject-card:hover{transform:translateY(-4px);}
+.subject-card .thumb{aspect-ratio:16/10; background:transparent;}
 .subject-card .body{padding:18px 18px 20px; display:flex; flex-direction:column; flex:1;}
 .subject-card .tag{font-size:.68rem; font-weight:700; letter-spacing:.1em; color:var(--accent-2); background:var(--surface-2); align-self:flex-start; padding:3px 8px; margin-bottom:10px;}
 .subject-card .tag.pending{color:var(--muted);}
@@ -186,8 +186,8 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 .article-hero h1{font-size:clamp(2rem,4vw,3rem); margin:.2em 0 .3em;}
 .article-meta{display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:.88rem;}
 .article-body{max-width:74ch;}
-.article-figure{aspect-ratio:16/9; background:var(--surface-2); border:1px solid var(--border); margin:20px 0;}
-.article-figure img{width:100%; height:100%; object-fit:cover;}
+.article-figure{aspect-ratio:16/9; background:transparent; border:none; margin:20px 0;}
+.article-figure img{width:100%; height:100%; object-fit:contain;}
  
 .status-note{
   background:var(--surface-2); border:1px dashed var(--border); padding:28px; text-align:center;
@@ -202,7 +202,7 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 .data-panel .row{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); font-family:var(--font-display); font-size:1.05rem;}
 .data-panel .row:last-child{border-bottom:none;}
 .data-panel .row span:first-child{color:var(--muted); font-family:var(--font-body); font-size:.9rem;}
-.graph-panel{background:var(--surface); border:1px solid var(--border); min-height:220px;}
+.graph-panel{background:transparent; border:none; min-height:220px;}
  
 .solution-block{background:var(--surface); border:1px solid var(--border); padding:24px; margin:18px 0;}
 .solution-block h4{font-size:.78rem; letter-spacing:.1em; color:var(--accent); margin-bottom:14px;}
@@ -242,7 +242,7 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 @media (max-width:960px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
 @media (max-width:620px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
 .team-card{background:var(--surface); border:1px solid var(--border); text-align:center; padding:0 0 18px;}
-.team-photo{aspect-ratio:1/1; background:var(--surface-2); margin-bottom:14px;}
+.team-photo{aspect-ratio:1/1; background:transparent; margin-bottom:14px;}
 .team-card h3{font-size:1.02rem; margin-bottom:.2em;}
 .team-card .subj{color:var(--accent); font-size:.78rem; font-weight:700;}
 .team-card .bio{color:var(--muted); font-size:.82rem; padding:0 12px;}
@@ -356,7 +356,7 @@ const translations = {
     navHome:"Home", navSubjects:"Subjects", navTeam:"Team", navAbout:"About",
     heroEyebrow:"Issue No. 1 — " + CONFIG.PROJECT_YEAR,
     heroTitle: CONFIG.PROJECT_NAME.toUpperCase(),
-    heroLede:"A student-made magazine bringing nine subjects together in one place — science, math, language, history and more, all in progress.",
+    heroLede:"A student-made magazine bringing seven subjects together in one place — science, math, history and more, all in progress.",
     exploreBtn:"Explore the Magazine",
     exploreHeading:"Explore the Subjects",
     seeAll:"View all",
@@ -389,7 +389,7 @@ const translations = {
     notFoundTitle:"PAGE NOT FOUND",
     notFoundMsg:"Looks like this page is not part of this issue.",
     aboutTitle:"About the Project",
-    aboutText:"This is a student-made, multidisciplinary digital magazine that brings together eight school subjects — Language and Literature, History, Citizenship, Entrepreneurship, Mathematics, Physics, Chemistry and Biology — in a single, evolving publication. Jorge Guallichico contributed the Digital Skills material. Each section is written and designed by a member of the team, and the magazine will keep growing throughout the school year as new material is submitted.",
+    aboutText:"This is a student-made, multidisciplinary digital magazine that brings together seven school subjects — History, Citizenship, Entrepreneurship, Mathematics, Physics, Chemistry and Biology — in a single, evolving publication. Jorge Guallichico contributed the Digital Skills material. Each section is written and designed by a member of the team, and the magazine will keep growing throughout the school year as new material is submitted.",
     theTeam:"The Team",
     whoCreated:"Who Created What?",
     responsible:"Responsible for",
@@ -405,7 +405,7 @@ const translations = {
     navHome:"Inicio", navSubjects:"Materias", navTeam:"Equipo", navAbout:"Acerca de",
     heroEyebrow:"Edición N.º 1 — " + CONFIG.PROJECT_YEAR,
     heroTitle: CONFIG.PROJECT_NAME.toUpperCase(),
-    heroLede:"Una revista hecha por estudiantes que reúne nueve materias en un solo lugar: ciencia, matemáticas, lenguaje, historia y más, todo en construcción.",
+    heroLede:"Una revista hecha por estudiantes que reúne siete materias en un solo lugar: ciencia, matemáticas, historia y más, todo en construcción.",
     exploreBtn:"Explorar la Revista",
     exploreHeading:"Explora las Materias",
     seeAll:"Ver todas",
@@ -438,7 +438,7 @@ const translations = {
     notFoundTitle:"PÁGINA NO ENCONTRADA",
     notFoundMsg:"Parece que esta página no forma parte de esta edición.",
     aboutTitle:"Acerca del Proyecto",
-    aboutText:"Esta es una revista digital multidisciplinaria hecha por estudiantes, que reúne ocho materias escolares —Lenguaje y Literatura, Historia, Ciudadanía, Emprendimiento, Matemáticas, Física, Química y Biología— en una sola publicación en constante crecimiento. Jorge Guallichico realizó el material de Destrezas Digitales. Cada sección es escrita y diseñada por un integrante del equipo, y la revista seguirá creciendo durante todo el año lectivo conforme se entregue nuevo material.",
+    aboutText:"Esta es una revista digital multidisciplinaria hecha por estudiantes, que reúne siete materias escolares —Historia, Ciudadanía, Emprendimiento, Matemáticas, Física, Química y Biología— en una sola publicación en constante crecimiento. Jorge Guallichico realizó el material de Destrezas Digitales. Cada sección es escrita y diseñada por un integrante del equipo, y la revista seguirá creciendo durante todo el año lectivo conforme se entregue nuevo material.",
     theTeam:"El Equipo",
     whoCreated:"¿Quién Creó Qué?",
     responsible:"Responsable de",
@@ -457,12 +457,6 @@ const translations = {
    Status: "available" | "pending"
    ============================================================ */
 const subjects = {
-  language: {
-    id:"language", image:"images/language-logo.png",
-    responsible:"Gabriel Beltrán", status:"pending",
-    name:{en:"Language and Literature", es:"Lenguaje y Literatura"},
-    desc:{en:"Reading, writing and the stories that shape how we communicate.", es:"Lectura, escritura y las historias que dan forma a nuestra comunicación."}
-  },
   history: {
     id:"history", image:"images/history-logo.png",
     responsible:"Juseth Estrella", status:"pending",
@@ -471,7 +465,7 @@ const subjects = {
   },
   citizenship: {
     id:"citizenship", image:"images/citizenship-logo.png",
-    responsible:"Juseth Estrella", status:"pending",
+    responsible:"Gabriel Beltrán", status:"pending",
     name:{en:"Citizenship", es:"Ciudadanía"},
     desc:{en:"Rights, responsibilities and life in a democratic society.", es:"Derechos, responsabilidades y la vida en una sociedad democrática."}
   },
@@ -506,10 +500,10 @@ const subjects = {
     desc:{en:"Life, cells and the systems that sustain living things.", es:"La vida, las células y los sistemas que sostienen a los seres vivos."}
   },
 };
-const subjectOrder = ["language","history","citizenship","entrepreneurship","mathematics","physics","chemistry","biology"];
+const subjectOrder = ["history","citizenship","entrepreneurship","mathematics","physics","chemistry","biology"];
  
 const team = [
-  {name:"Gabriel Beltrán", file:"images/gabriel.png", subjects:{en:"Language and Literature", es:"Lenguaje y Literatura"}},
+  {name:"Gabriel Beltrán", file:"images/gabriel.png", subjects:{en:"Citizenship", es:"Ciudadanía"}},
   {name:"Matheo Tipán", file:"images/matheo.png", subjects:{en:"Chemistry & Biology", es:"Química y Biología"}},
   {name:"Juseth Estrella", file:"images/juseth.png", subjects:{en:"History, Entrepreneurship & Citizenship", es:"Historia, Emprendimiento y Ciudadanía"}},
   {name:"Matias Usuay", file:"images/matias.png", subjects:{en:"Mathematics & Physics", es:"Matemáticas y Física"}},
@@ -529,7 +523,7 @@ function t(key){ return translations[lang][key] || key; }
 function img(src, alt, extraClass, placeholderText){
   const ph = placeholderText || t('imageComingSoon');
   return `<div class="${extraClass||''}" style="width:100%;height:100%;">
-    <img src="${src}" alt="${alt}" style="width:100%;height:100%;object-fit:cover;"
+    <img src="${src}" alt="${alt}" style="width:100%;height:100%;object-fit:contain;"
       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',style:'width:100%;height:100%;',innerHTML:'&#128247;<br>${ph}<br><small>${src}</small>'}))">
   </div>`;
 }
@@ -954,4 +948,3 @@ render();
 </script>
 </body>
 </html>
- 
