@@ -659,7 +659,7 @@ const subjects = {
   },
   chemistrybiology: {
     id:"chemistrybiology", image:"images/chemistry-logo.png",
-    responsible:"Matheo Tipán", status:"pending",
+    responsible:"Matheo Tipán", status:"available",
     name:{en:"Chemistry & Biology", es:"Química y Biología", zh:"化学与生物"},
     desc:{en:"The elements, reactions and living systems around us — one shared section.", es:"Los elementos, reacciones y sistemas vivos que nos rodean, en una sola sección.", zh:"我们身边的元素、反应与生命系统——合并为一个板块。"}
   }
@@ -923,6 +923,61 @@ function mathArticle(){
         <div class="row"><span>${t('range')}</span><span>(&minus;&infin;,0]&cup;(0,&infin;)</span></div>
       </div>
     </div>
+  </section>`;
+}
+
+/* ---------- CHEMISTRY & BIOLOGY (shared section) ---------- */
+function chemistryBiologyArticle(){
+  const s = subjects.chemistrybiology;
+  const content = {
+    en:{
+      title:'Chemistry and Biology of Digestion',
+      intro:'Digestion is a clear example of chemistry and biology working together. Chemical reactions break nutrients into smaller molecules, while the digestive organs provide the structures and conditions needed to process, absorb and use those nutrients.',
+      acidTitle:'Gastric Acid and Its Role in Digestion',
+      acid:`<p>Gastric acid is mainly hydrochloric acid (HCl), produced by the parietal cells of the stomach. Inside these cells, carbon dioxide and water form carbonic acid, which separates into hydrogen ions and bicarbonate:</p><div class="math-block">CO<sub>2</sub> + H<sub>2</sub>O &rarr; H<sub>2</sub>CO<sub>3</sub> &rarr; H<sup>+</sup> + HCO<sub>3</sub><sup>&minus;</sup></div><p>Hydrogen ions are secreted into the stomach through the H<sup>+</sup>/K<sup>+</sup>-ATPase pump. Chloride ions move into the gastric lumen and combine with hydrogen ions:</p><div class="math-block">H<sup>+</sup> + Cl<sup>&minus;</sup> &rarr; HCl</div><p>This produces a highly acidic environment, with a pH of approximately 1&ndash;3. Gastric acid:</p><ul><li>Denatures proteins by disrupting the interactions that maintain their three-dimensional structure.</li><li>Activates pepsinogen into pepsin, the enzyme that begins protein hydrolysis in the stomach.</li><li>Helps destroy many microorganisms that enter the body with food.</li><li>Provides the low-pH conditions in which pepsin works effectively.</li></ul><p><strong>Important:</strong> HCl is not the enzyme that digests proteins. HCl creates the appropriate chemical conditions; pepsin carries out protein digestion.</p>`,
+      carbTitle:'Digestion and Absorption of Carbohydrates',
+      carb:`<p>The general process is:</p><div class="math-block">Large carbohydrates &rarr; smaller molecules &rarr; monosaccharides &rarr; intestinal absorption</div><h4>In the mouth</h4><p>Digestion begins with salivary amylase. Starch is made of many glucose units joined by glycosidic bonds. Amylase begins breaking these bonds and produces maltose, maltotriose and dextrins:</p><div class="math-block">Starch &rarr; maltose + maltotriose + dextrins</div><h4>In the stomach</h4><p>Hydrochloric acid does not directly digest carbohydrates. The acidic environment gradually inactivates salivary amylase. Most carbohydrate digestion therefore continues in the small intestine, where pancreatic amylase and brush-border enzymes complete the process.</p><h4>Absorption</h4><p>The resulting monosaccharides, especially glucose, are absorbed mainly through the walls of the small intestine and enter the bloodstream. Amino acids and fatty acids are also absorbed there; many lipids enter the lymphatic system before reaching the blood.</p>`,
+      linkTitle:'How Chemistry and Biology Work Together', linkText:'Chemistry explains the reactions, bonds, ions and changes in pH. Biology explains how the stomach, pancreas, small intestine and transport systems coordinate these reactions. Together, they transform food into molecules that cells can absorb and use for energy, growth and repair.',
+      references:'References', refNote:'The explanations in this section are based on the following physiology textbooks:',
+      refs:[`Hall, J. E. (2020). <em>Guyton and Hall Textbook of Medical Physiology</em> (14th ed.). Elsevier. <a href="https://shop.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8" target="_blank" rel="noopener noreferrer">Publisher link</a>.`,`Silverthorn, D. U. (2022). <em>Human Physiology: An Integrated Approach</em> (8th ed.). Pearson. <a href="https://www.pearson.com/en-gb/subject-catalog/p/human-physiology-an-integrated-approach-global-edition/P200000015615" target="_blank" rel="noopener noreferrer">Publisher link</a>.`]
+    },
+    es:{
+      title:'Química y Biología de la Digestión',
+      intro:'La digestión es un ejemplo claro de cómo trabajan juntas la química y la biología. Las reacciones químicas descomponen los nutrientes en moléculas más pequeñas, mientras que los órganos del sistema digestivo proporcionan las estructuras y condiciones necesarias para procesarlos, absorberlos y utilizarlos.',
+      acidTitle:'El Ácido Gástrico y su Función en la Digestión',
+      acid:`<p>El ácido gástrico está formado principalmente por ácido clorhídrico (HCl), producido por las células parietales del estómago. Dentro de estas células, el dióxido de carbono y el agua forman ácido carbónico, que se separa en iones de hidrógeno y bicarbonato:</p><div class="math-block">CO<sub>2</sub> + H<sub>2</sub>O &rarr; H<sub>2</sub>CO<sub>3</sub> &rarr; H<sup>+</sup> + HCO<sub>3</sub><sup>&minus;</sup></div><p>Los iones de hidrógeno son secretados al estómago mediante la bomba H<sup>+</sup>/K<sup>+</sup>-ATPasa. Los iones de cloro pasan a la luz gástrica y se combinan con los iones de hidrógeno:</p><div class="math-block">H<sup>+</sup> + Cl<sup>&minus;</sup> &rarr; HCl</div><p>Esto produce un ambiente muy ácido, con un pH aproximado de 1 a 3. El ácido gástrico:</p><ul><li>Desnaturaliza las proteínas al romper las interacciones que mantienen su estructura tridimensional.</li><li>Activa el pepsinógeno y lo convierte en pepsina, la enzima que inicia la hidrólisis de proteínas en el estómago.</li><li>Ayuda a destruir muchos microorganismos que ingresan al cuerpo con los alimentos.</li><li>Proporciona el pH bajo en el que la pepsina funciona eficazmente.</li></ul><p><strong>Importante:</strong> el HCl no es la enzima que digiere las proteínas. El HCl crea las condiciones químicas adecuadas; la pepsina realiza la digestión de proteínas.</p>`,
+      carbTitle:'Digestión y Absorción de los Carbohidratos',
+      carb:`<p>El proceso general es:</p><div class="math-block">Carbohidratos grandes &rarr; moléculas pequeñas &rarr; monosacáridos &rarr; absorción intestinal</div><h4>En la boca</h4><p>La digestión comienza con la amilasa salival. El almidón está formado por muchas unidades de glucosa unidas mediante enlaces glucosídicos. La amilasa empieza a romper estos enlaces y produce maltosa, maltotriosa y dextrinas:</p><div class="math-block">Almidón &rarr; maltosa + maltotriosa + dextrinas</div><h4>En el estómago</h4><p>El ácido clorhídrico no digiere directamente los carbohidratos. El ambiente ácido inactiva gradualmente la amilasa salival. Por eso, la mayor parte de la digestión de carbohidratos continúa en el intestino delgado, donde la amilasa pancreática y las enzimas del borde en cepillo completan el proceso.</p><h4>Absorción</h4><p>Los monosacáridos resultantes, especialmente la glucosa, se absorben principalmente a través de las paredes del intestino delgado y pasan al torrente sanguíneo. Los aminoácidos y ácidos grasos también se absorben allí; muchos lípidos pasan primero al sistema linfático antes de llegar a la sangre.</p>`,
+      linkTitle:'Cómo Trabajan Juntas la Química y la Biología', linkText:'La química explica las reacciones, los enlaces, los iones y los cambios de pH. La biología explica cómo coordinan estas reacciones el estómago, el páncreas, el intestino delgado y los sistemas de transporte. Juntas convierten los alimentos en moléculas que las células pueden absorber y utilizar para obtener energía, crecer y repararse.',
+      references:'Referencias', refNote:'Las explicaciones de esta sección se basan en los siguientes libros de fisiología:',
+      refs:[`Hall, J. E. (2020). <em>Guyton and Hall Textbook of Medical Physiology</em> (14.ª ed.). Elsevier. <a href="https://shop.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8" target="_blank" rel="noopener noreferrer">Enlace de la editorial</a>.`,`Silverthorn, D. U. (2022). <em>Human Physiology: An Integrated Approach</em> (8.ª ed.). Pearson. <a href="https://www.pearson.com/en-gb/subject-catalog/p/human-physiology-an-integrated-approach-global-edition/P200000015615" target="_blank" rel="noopener noreferrer">Enlace del catálogo</a>.`]
+    },
+    zh:{
+      title:'消化过程中的化学与生物学',
+      intro:'消化是化学与生物学共同作用的清晰例子。化学反应把营养物质分解成更小的分子，而消化系统的器官提供处理、吸收和利用这些营养物质所需的结构与条件。',
+      acidTitle:'胃酸及其在消化中的作用',
+      acid:`<p>胃酸主要是盐酸（HCl），由胃的壁细胞产生。在壁细胞内，二氧化碳和水形成碳酸，随后分解为氢离子和碳酸氢根：</p><div class="math-block">CO<sub>2</sub> + H<sub>2</sub>O &rarr; H<sub>2</sub>CO<sub>3</sub> &rarr; H<sup>+</sup> + HCO<sub>3</sub><sup>&minus;</sup></div><p>氢离子通过 H<sup>+</sup>/K<sup>+</sup>-ATPase 泵分泌到胃腔中，氯离子进入胃腔并与氢离子结合：</p><div class="math-block">H<sup>+</sup> + Cl<sup>&minus;</sup> &rarr; HCl</div><p>这会形成约为 1–3 的强酸性环境。胃酸能够：</p><ul><li>使蛋白质变性，破坏维持其三维结构的相互作用。</li><li>将胃蛋白酶原激活为胃蛋白酶，开始蛋白质水解。</li><li>帮助消灭许多随食物进入人体的微生物。</li><li>提供胃蛋白酶有效工作的低 pH 条件。</li></ul><p><strong>重要说明：</strong>HCl 不是消化蛋白质的酶。HCl 创造合适的化学条件，而胃蛋白酶负责蛋白质消化。</p>`,
+      carbTitle:'碳水化合物的消化与吸收',
+      carb:`<p>基本过程是：</p><div class="math-block">大分子碳水化合物 &rarr; 小分子 &rarr; 单糖 &rarr; 肠道吸收</div><h4>口腔中</h4><p>消化从唾液淀粉酶开始。淀粉由许多通过糖苷键连接的葡萄糖单元组成。淀粉酶开始断开这些连接，产生麦芽糖、麦芽三糖和糊精：</p><div class="math-block">淀粉 &rarr; 麦芽糖 + 麦芽三糖 + 糊精</div><h4>胃中</h4><p>盐酸不会直接消化碳水化合物。胃内的酸性环境会逐渐使唾液淀粉酶失活。因此，大部分碳水化合物消化在小肠中继续进行，并由胰淀粉酶和刷状缘酶完成。</p><h4>吸收</h4><p>最终产生的单糖，尤其是葡萄糖，主要通过小肠壁吸收并进入血液。氨基酸和脂肪酸等其他消化产物也在小肠中吸收；许多脂质会先进入淋巴系统，再进入血液。</p>`,
+      linkTitle:'化学与生物学如何共同作用', linkText:'化学解释反应、化学键、离子和 pH 变化；生物学解释胃、胰腺、小肠和运输系统如何协调这些反应。两门学科共同帮助把食物转化为细胞能够吸收和利用的分子，为能量、成长和修复提供基础。',
+      references:'参考文献', refNote:'本节内容参考了以下生理学教材：',
+      refs:[`Hall, J. E. (2020). <em>Guyton and Hall Textbook of Medical Physiology</em>（第14版）。Elsevier。<a href="https://shop.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8" target="_blank" rel="noopener noreferrer">出版社链接</a>。`,`Silverthorn, D. U. (2022). <em>Human Physiology: An Integrated Approach</em>（第8版）。Pearson。<a href="https://www.pearson.com/en-gb/subject-catalog/p/human-physiology-an-integrated-approach-global-edition/P200000015615" target="_blank" rel="noopener noreferrer">目录链接</a>。`]
+    }
+  }[lang] || null;
+  return `
+  <section class="section wrap">
+    ${crumbs(s.name[lang])}
+    <a href="#/subjects" class="back-link">&larr; ${t('backToMagazine')}</a>
+    <div class="article-hero">
+      <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()} &middot; ${lang==='en'?'CHEMISTRY & BIOLOGY':lang==='es'?'QUÍMICA Y BIOLOGÍA':'化学与生物'}</div>
+      <h1>${content.title}</h1>
+      <div class="article-meta"><span>${t('createdBy')}: ${s.responsible}</span></div>
+    </div>
+    <div class="article-body"><p>${content.intro}</p></div>
+    <div class="solution-block"><h4>${content.acidTitle.toUpperCase()}</h4>${content.acid}</div>
+    <div class="solution-block"><h4>${content.carbTitle.toUpperCase()}</h4>${content.carb}</div>
+    <div class="solution-block"><h4>${content.linkTitle.toUpperCase()}</h4><p>${content.linkText}</p></div>
+    <div class="media-box"><h4>${content.references.toUpperCase()}</h4><p>${content.refNote}</p><ul class="sources-list">${content.refs.map(ref=>`<li>${ref}</li>`).join('')}</ul></div>
   </section>`;
 }
 
@@ -1193,6 +1248,7 @@ function viewSubject(id){
   if(id === 'entrepreneurship') return entrepreneurshipArticle();
   if(id === 'citizenship') return citizenshipArticle();
   if(id === 'history') return historyArticle();
+  if(id === 'chemistrybiology' || id === 'chemistry' || id === 'biology') return chemistryBiologyArticle();
   return pendingArticle(s);
 }
 
