@@ -317,6 +317,15 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{right:0;}
 .chapter{margin:30px 0; padding-top:22px; border-top:1px solid var(--border);}
 .chapter-num{font-size:.72rem; letter-spacing:.14em; color:var(--muted); font-weight:700;}
 .chapter h3{font-size:1.3rem; margin:.2em 0 .5em;}
+.timeline{position:relative; margin:30px 0; padding-left:34px;}
+.timeline::before{content:""; position:absolute; left:9px; top:8px; bottom:8px; width:2px; background:var(--accent-2);}
+.timeline-event{position:relative; padding:0 0 30px;}
+.timeline-event:last-child{padding-bottom:0;}
+.timeline-event::before{content:""; position:absolute; left:-31px; top:6px; width:12px; height:12px; border:3px solid var(--accent); background:var(--background); border-radius:50%;}
+.timeline-date{display:inline-block; color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.08em; margin-bottom:5px;}
+.timeline-event h3{margin:.1em 0 .5em;}
+.timeline-conclusion{background:var(--surface-2); border-left:4px solid var(--accent-2); padding:22px 24px; margin-top:32px;}
+@media (max-width:600px){.timeline{padding-left:27px;}.timeline-event::before{left:-24px;}}
 .story-figures{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;}
 @media (max-width:600px){ .story-figures{grid-template-columns:1fr;} }
 .story-figure{aspect-ratio:1/1; border-radius:14px; overflow:hidden;}
@@ -931,10 +940,28 @@ function entrepreneurshipArticle(){
     <a href="#/subjects" class="back-link">&larr; ${t('backToMagazine')}</a>
     <div class="article-hero">
       <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()}</div>
-      <h1>${lang==='en' ? 'Calculating a Worker&rsquo;s Social Benefit' : lang==='es' ? 'Calculando el Beneficio Social de un Trabajador' : '计算员工的社会福利'}</h1>
+      <h1>${lang==='en' ? 'Lloa Microenterprise: Financial and Social Study' : lang==='es' ? 'Microempresa de Lloa: Estudio Financiero y Social' : '洛阿微型企业：财务与社会福利研究'}</h1>
       <div class="article-meta"><span>${t('createdBy')}: ${s.responsible}</span></div>
     </div>
     <div class="article-body"><p>${intro[lang]}</p></div>
+
+    <div class="solution-block">
+      <h4>${lang==='en' ? '1. SOCIAL BENEFIT EXAMPLE' : lang==='es' ? '1. EJEMPLO DE BENEFICIO SOCIAL' : '1. 社会福利示例'}</h4>
+      <div class="step-line">SN (${lang==='en' ? 'Nominal Salary' : lang==='es' ? 'Sueldo Nominal' : '名义工资'}) = <strong>$550.00</strong></div>
+      <div class="step-line">SBU (${lang==='en' ? 'Unified Basic Salary' : lang==='es' ? 'Salario Básico Unificado' : '统一基本工资'}) = <strong>$482.00</strong></div>
+      <div class="step-line">IESS (11.15% del SBU) = $550 &times; 0.1115 = <strong>$61.33</strong></div>
+      <div class="step-line">${t('thirteenth')}: $550 &divide; 12 = <strong>$45.83</strong></div>
+      <div class="step-line">${t('fourteenth')}: $482 &divide; 12 = <strong>$40.17</strong></div>
+      <div class="step-line"><strong>${t('socialBenefit')}: $45.83 + $40.17 + $61.33 = $147.33</strong></div>
+    </div>
+
+    <div class="solution-block">
+      <h4>${lang==='en' ? '2. BREAK-EVEN POINT' : lang==='es' ? '2. PUNTO DE EQUILIBRIO' : '2. 盈亏平衡点'}</h4>
+      <p>${lang==='en' ? 'The break-even point is the sales level at which total income equals total costs, with neither loss nor profit.' : lang==='es' ? 'El punto de equilibrio es el nivel de ventas en el que los ingresos totales igualan a los costos totales; no hay pérdida ni ganancia.' : '盈亏平衡点是总收入等于总成本的销售水平，此时没有亏损也没有利润。'}</p>
+      <div class="step-line">CF = <strong>$1,000.00</strong> &nbsp; | &nbsp; CVU = <strong>$10.00</strong> &nbsp; | &nbsp; PV = <strong>$15.00</strong></div>
+      <div class="math-block">PE = CF &divide; (PV &minus; CVU) = 1,000 &divide; (15 &minus; 10) = <strong>200 unidades</strong></div>
+      <p><strong>${lang==='en' ? 'The microenterprise must sell at least 200 units to cover all its costs.' : lang==='es' ? 'La microempresa debe vender al menos 200 unidades para cubrir todos sus costos.' : '微型企业至少要销售 200 件产品才能覆盖全部成本。'}</strong></p>
+    </div>
 
     <div class="calc-grid">
       <div class="calc-card">
@@ -975,6 +1002,15 @@ function entrepreneurshipArticle(){
         ? 'Cada mes, el empleador de Gustavo destina $147.33 en beneficios sociales además de su sueldo neto de $550, una obligación legal que protege a los trabajadores en empresas registradas.'
         : '每个月，古斯塔沃的雇主除了支付 550 美元的净工资外，还需额外提供 147.33 美元的社会福利——这是保护正规注册企业员工的法定义务。'}
     </blockquote>
+
+    <div class="solution-block">
+      <h4>${lang==='en' ? '3. MAIN ACCOUNTING ACCOUNTS' : lang==='es' ? '3. PRINCIPALES CUENTAS CONTABLES' : '3. 主要会计科目'}</h4>
+      <div class="calc-grid">
+        <div class="calc-card"><h4>${lang==='en' ? 'ASSETS' : lang==='es' ? 'ACTIVOS' : '资产'}</h4><p> Caja y bancos<br> Cuentas por cobrar<br> Inventarios<br> Propiedad, planta y equipo<br> Otros activos</p></div>
+        <div class="calc-card"><h4>${lang==='en' ? 'LIABILITIES' : lang==='es' ? 'PASIVOS' : '负债'}</h4><p> Cuentas por pagar<br> Préstamos<br> Obligaciones laborales<br> Obligaciones con el IESS<br> Otros pasivos</p></div>
+        <div class="calc-card"><h4>${lang==='en' ? 'EQUITY' : lang==='es' ? 'PATRIMONIO' : '权益'}</h4><p> Capital social<br> Resultados acumulados<br> Utilidad del ejercicio<br> Aportes de los socios</p></div>
+      </div>
+    </div>
   </section>`;
 }
 
@@ -1051,18 +1087,47 @@ function historyArticle(){
     ? 'Este artículo se presenta tal como fue escrito y entregado, en español.'
     : '本文以西班牙语原文提交，为保证历史内容的准确性，此处按原文呈现，未做机器翻译。';
 
-  const chapters = [
-    { title: t('introduction'), html: `<p>La antigua China desarrolló una de las civilizaciones más importantes y duraderas de la historia. Durante miles de años, sus habitantes realizaron importantes avances en áreas como la escritura, la arquitectura, la medicina, las matemáticas y la tecnología. Muchos de estos conocimientos fueron perfeccionados a lo largo de diferentes dinastías y tuvieron una gran influencia en otras sociedades de Asia.</p>` },
-    { title: t('chineseWriting'), html: `<p>La escritura china es uno de los elementos más característicos de esta civilización. Sus primeras formas conocidas aparecen en inscripciones realizadas sobre huesos y caparazones de tortuga durante la dinastía Shang, aproximadamente entre los siglos XIII y XI a. C. Estas inscripciones, conocidas como escritura de huesos oraculares, fueron utilizadas principalmente para realizar consultas religiosas y registrar acontecimientos. Con el paso del tiempo, los caracteres fueron evolucionando hasta convertirse en sistemas de escritura más estandarizados. A diferencia de muchos alfabetos, la escritura china se basa principalmente en caracteres que representan palabras o conceptos. La escritura fue fundamental para la administración del Estado, la conservación de conocimientos y el desarrollo de la literatura y la filosofía.</p>` },
-    { title: t('architecture'), html: `<p>La arquitectura china también alcanzó un gran desarrollo. Los antiguos chinos construyeron palacios, templos, murallas, canales, caminos y enormes complejos funerarios. Utilizaron principalmente madera, piedra, ladrillo y tierra apisonada. Una de sus características fue el empleo de estructuras de madera con uniones cuidadosamente diseñadas, que permitían construir edificios resistentes. Entre las obras más importantes se encuentran las primeras fortificaciones que posteriormente formarían parte de la Gran Muralla China y numerosos palacios y tumbas imperiales. Durante diferentes períodos también se construyeron grandes sistemas de canales y obras hidráulicas para controlar los ríos y favorecer la agricultura.</p>` },
-    { title: t('chineseMedicine'), html: `<p>La medicina china se desarrolló mediante la observación del cuerpo humano, las enfermedades y los efectos de diferentes plantas y sustancias. Los médicos antiguos elaboraron tratados sobre enfermedades, tratamientos y plantas medicinales. La medicina tradicional china desarrolló prácticas como la acupuntura y la utilización de preparados a base de plantas. Uno de los textos médicos más importantes es el <em>Huangdi Neijing</em> o <em>Clásico interno del Emperador Amarillo</em>, compuesto a lo largo de varios siglos y relacionado con las ideas médicas tradicionales. Aunque muchas de sus explicaciones sobre el funcionamiento del cuerpo son diferentes de las de la medicina moderna, estos conocimientos muestran el interés de los antiguos chinos por estudiar y tratar las enfermedades.</p>` },
-    { title: lang==='en'?'Mathematics':lang==='es'?'Matemáticas':'数学', html: `<p>Las matemáticas también tuvieron un papel importante. Los chinos desarrollaron métodos para realizar cálculos y resolver problemas relacionados con la agricultura, el comercio, la construcción y la astronomía. Uno de los textos matemáticos más importantes fue <em>Los nueve capítulos sobre el arte matemático</em>, que reúne problemas y métodos de cálculo. Los matemáticos chinos utilizaron un sistema decimal y desarrollaron procedimientos para trabajar con fracciones, proporciones, áreas y ecuaciones. También utilizaron varillas de cálculo para representar números y realizar operaciones. Estos métodos permitieron resolver problemas matemáticos bastante complejos para su época.</p>` },
-    { title: t('fourInventions'), html: `<p>La antigua China produjo numerosos inventos y avances tecnológicos que tuvieron una enorme importancia histórica. Entre ellos destacan el papel, la imprenta, la brújula y la pólvora, conocidos posteriormente como los cuatro grandes inventos de China.</p>` },
-    { title: t('paper'), html: `<p>El papel comenzó a desarrollarse durante los primeros siglos de nuestra era y permitió disponer de un material de escritura más práctico que las tablillas y otros soportes anteriores.</p>` },
-    { title: t('printing'), html: `<p>La impresión mediante bloques de madera apareció siglos después y facilitó la reproducción de textos.</p>` },
-    { title: t('gunpowder'), html: `<p>La pólvora fue descubierta por alquimistas chinos durante la dinastía Tang, probablemente en el siglo IX. Originalmente no fue creada como un arma: los alquimistas buscaban sustancias relacionadas con la longevidad y otras prácticas. Sin embargo, las mezclas que contenían salitre, azufre y carbón podían producir una combustión muy rápida. Con el tiempo, los chinos comenzaron a utilizar la pólvora en artefactos militares, como proyectiles y diferentes tipos de armas. También fue utilizada en fuegos artificiales y celebraciones.</p>` },
-    { title: t('historicalImportance'), html: `<p>Los avances de la antigua China muestran una civilización con importantes conocimientos científicos, técnicos y culturales. Su escritura permitió conservar información durante generaciones; su arquitectura produjo grandes obras; la medicina desarrolló sistemas propios de diagnóstico y tratamiento; las matemáticas proporcionaron métodos para resolver problemas prácticos; y sus inventos, especialmente el papel, la imprenta, la brújula y la pólvora, terminaron teniendo una influencia que se extendió mucho más allá de China.</p>` }
-  ];
+  const timelineByLanguage = {
+    es: [
+      { date:'1600–1046 a. C. · Dinastía Shang', title:'La escritura', html:`<p>La antigua China fue una de las civilizaciones más importantes de Asia y desarrolló conocimientos que evolucionaron durante diferentes períodos históricos. Durante la dinastía Shang se utilizaron inscripciones sobre huesos de animales y caparazones de tortuga, conocidas como huesos oraculares. Estas inscripciones estaban relacionadas con rituales y consultas a los antepasados y son una de las evidencias más antiguas de la escritura china.</p><p>Con el paso de los siglos, los caracteres evolucionaron. Durante las dinastías Zhou, Qin y Han se produjeron procesos de transformación y estandarización. La escritura permitió registrar leyes, impuestos, acontecimientos, conocimientos religiosos y administrativos, además de conservar obras literarias y científicas.</p>` },
+      { date:'475–221 a. C. · Reinos Combatientes', title:'La arquitectura y la defensa', html:`<p>La arquitectura china se desarrolló por las necesidades políticas, religiosas, militares y agrícolas. Durante los períodos Shang y Zhou se construyeron ciudades, palacios y fortificaciones. Más tarde, los conflictos entre los Estados impulsaron la construcción de murallas y sistemas defensivos.</p>` },
+      { date:'221–206 a. C. · Dinastía Qin', title:'La unificación y las grandes obras', html:`<p>Cuando Qin Shi Huang unificó China en 221 a. C., se conectaron y ampliaron fortificaciones existentes, formando parte de lo que posteriormente sería conocido como la Gran Muralla. También se construyó el ejército de terracota para proteger simbólicamente la tumba del emperador.</p>` },
+      { date:'Siglos V a. C.–II d. C. · Reinos Combatientes y Han', title:'Los avances en medicina', html:`<p>La medicina china se desarrolló mediante la observación de enfermedades, plantas y prácticas terapéuticas. Se sistematizaron conocimientos sobre el cuerpo humano, el qi y el equilibrio entre yin y yang. El <em>Huangdi Neijing</em>, o <em>Clásico interno del Emperador Amarillo</em>, recogió conocimientos de diferentes épocas. También se desarrollaron tratamientos basados en plantas y técnicas como la acupuntura.</p>` },
+      { date:'186 a. C. · Primeros textos matemáticos', title:'Los avances en matemáticas', html:`<p>Las matemáticas chinas se desarrollaron para resolver problemas de agricultura, comercio, medición de terrenos, impuestos, construcción y administración. El <em>Suàn shù shū</em>, o <em>Libro sobre números y cálculo</em>, contiene problemas de fracciones, cálculos y volúmenes.</p><p>También fueron importantes los <em>Nueve capítulos sobre el arte matemático</em>. Liu Hui, activo en el siglo III d. C., realizó comentarios sobre geometría, áreas, volúmenes y la relación entre la circunferencia y su diámetro.</p>` },
+      { date:'206 a. C.–220 d. C. · Dinastía Han', title:'El papel y la administración', html:`<p>Durante la dinastía Han se desarrollaron ciudades, caminos, canales, puentes y edificios administrativos. Estas obras facilitaron el transporte, la agricultura, el comercio y la administración. En el año 105 d. C., Cai Lun fue reconocido tradicionalmente por mejorar la fabricación de papel con materiales vegetales y fibras.</p>` },
+      { date:'618–907 d. C. · Dinastía Tang', title:'La pólvora y los inventos', html:`<p>La pólvora apareció durante la dinastía Tang a partir de experimentos de alquimistas chinos. Su descubrimiento estuvo relacionado inicialmente con la búsqueda de sustancias y preparados. Con el tiempo tuvo aplicaciones tecnológicas. La impresión mediante bloques de madera y la brújula también se desarrollaron en períodos posteriores.</p><p>Los Cuatro Grandes Inventos de China —papel, imprenta, brújula y pólvora— fueron el resultado de un largo proceso tecnológico.</p>` }
+    ],
+    en: [
+      { date:'1600–1046 BCE · Shang Dynasty', title:'Writing', html:`<p>Ancient China was one of Asia's most important civilizations and developed knowledge over many historical periods. During the Shang dynasty, inscriptions were made on animal bones and turtle shells, known as oracle bones. They were mainly connected with rituals and consultations with ancestors and are among the earliest evidence of Chinese writing.</p><p>Over the centuries, the characters evolved. During the Zhou, Qin and Han dynasties, writing went through processes of transformation and standardization. It made it possible to record laws, taxes, events, religious and administrative knowledge, as well as literary and scientific works.</p>` },
+      { date:'475–221 BCE · Warring States', title:'Architecture and defense', html:`<p>Chinese architecture developed in response to political, religious, military and agricultural needs. During the Shang and Zhou periods, cities, palaces and fortifications were built. Later, conflicts between states encouraged the construction of walls and defensive systems.</p>` },
+      { date:'221–206 BCE · Qin Dynasty', title:'Unification and major works', html:`<p>When Qin Shi Huang unified China in 221 BCE, existing fortifications were connected and expanded, becoming part of what would later be known as the Great Wall. The famous Terracotta Army was also built to symbolically protect the emperor's tomb.</p>` },
+      { date:'5th century BCE–2nd century CE · Warring States and Han', title:'Medical advances', html:`<p>Chinese medicine developed through the observation of diseases, plants and therapeutic practices. Knowledge about the human body, illness, qi, and the balance between yin and yang was systematized. The <em>Huangdi Neijing</em>, or <em>Yellow Emperor's Inner Classic</em>, gathered knowledge from different periods. Plant-based treatments and techniques such as acupuncture also developed.</p>` },
+      { date:'186 BCE · Early mathematical texts', title:'Mathematical advances', html:`<p>Chinese mathematics developed to solve problems in agriculture, trade, land measurement, taxation, construction and administration. The <em>Suàn shù shū</em>, or <em>Book on Numbers and Calculation</em>, contains problems involving fractions, calculations and volumes.</p><p>The <em>Nine Chapters on the Mathematical Art</em> was also important. Liu Hui, active in the 3rd century CE, commented on geometry, areas, volumes and the relationship between circumference and diameter.</p>` },
+      { date:'206 BCE–220 CE · Han Dynasty', title:'Paper and administration', html:`<p>During the Han dynasty, cities, roads, canals, bridges and administrative buildings were developed. These works improved transportation, agriculture, trade and administration. In 105 CE, Cai Lun was traditionally credited with improving papermaking using plant materials and fibers.</p>` },
+      { date:'618–907 CE · Tang Dynasty', title:'Gunpowder and inventions', html:`<p>Gunpowder appeared during the Tang dynasty through experiments by Chinese alchemists. Its discovery was initially connected with the search for substances and preparations. Over time, it gained technological applications. Woodblock printing and the compass also developed in later periods.</p><p>The Four Great Inventions of China, paper, printing, the compass and gunpowder, were the result of a long technological process.</p>` }
+    ],
+    zh: [
+      { date:'公元前1600–1046年 · 商朝', title:'文字', html:`<p>古代中国是亚洲最重要的文明之一，知识在不同历史时期不断发展。商朝时期，人们在兽骨和龟甲上刻写文字，这些文字被称为甲骨文，主要用于祭祀和向祖先询问，是中国文字最早的证据之一。</p><p>几个世纪以来，汉字不断演变。周、秦、汉时期出现了文字的变化与规范化。文字使人们能够记录法律、税收、事件以及宗教和行政知识，也保存了文学和科学作品。</p>` },
+      { date:'公元前475–221年 · 战国时期', title:'建筑与防御', html:`<p>中国建筑的发展源于政治、宗教、军事和农业需求。商、周时期修建了城市、宫殿和防御工事。后来，各国之间的冲突推动了城墙和防御系统的建设。</p>` },
+      { date:'公元前221–206年 · 秦朝', title:'统一与大型工程', html:`<p>秦始皇在公元前221年统一中国后，连接并扩建了原有的防御工事，后来成为长城的一部分。人们还建造了著名的兵马俑，象征性地保护皇帝的陵墓。</p>` },
+      { date:'公元前5世纪–公元2世纪 · 战国与汉朝', title:'医学发展', html:`<p>中国医学通过观察疾病、植物和治疗方法逐步发展。人们系统整理了关于人体、疾病、气以及阴阳平衡的知识。《黄帝内经》汇集了不同时期的医学知识。以植物为基础的治疗方法和针灸等技术也逐渐发展起来。</p>` },
+      { date:'公元前186年 · 早期数学著作', title:'数学发展', html:`<p>中国数学主要用于解决农业、贸易、土地测量、税收、建筑和行政问题。《算数书》包含分数、计算和体积等问题。</p><p>《九章算术》也十分重要。生活在公元3世纪的刘徽对几何、面积、体积以及圆周与直径的关系进行了注释和研究。</p>` },
+      { date:'公元前206年–公元220年 · 汉朝', title:'纸张与行政管理', html:`<p>汉朝时期发展了城市、道路、运河、桥梁和行政建筑。这些工程促进了交通、农业、贸易和行政管理。公元105年，蔡伦传统上被认为改进了使用植物材料和纤维造纸的方法。</p>` },
+      { date:'公元618–907年 · 唐朝', title:'火药与发明', html:`<p>火药在唐朝由中国炼丹家的实验中出现。最初的探索与寻找各种物质和配方有关，后来逐渐产生了技术应用。木版印刷和指南针也在后来的时期发展起来。</p><p>中国的四大发明，即造纸术、印刷术、指南针和火药，是长期技术发展的结果。</p>` }
+    ]
+  };
+  const timeline = timelineByLanguage[lang] || timelineByLanguage.es;
+  const historyTitle = lang==='en'
+    ? 'Ancient China: Writing, Architecture, Medicine, Mathematics and Inventions'
+    : lang==='zh'
+    ? '古代中国：文字、建筑、医学、数学与发明'
+    : 'La antigua China: escritura, arquitectura, medicina, matemáticas e inventos';
+  const conclusionTitle = lang==='en' ? 'Conclusion' : lang==='zh' ? '结论' : 'Conclusión';
+  const conclusion = lang==='en'
+    ? ['The development of ancient China was a centuries-long historical process in which society\'s needs, state administration, wars, agriculture, religion and the search for knowledge encouraged new advances.', 'Writing preserved information; architecture enabled great works; medicine developed its own tradition; mathematics solved practical problems; and technologies such as paper and gunpowder had consequences far beyond China.']
+    : lang==='zh'
+    ? ['古代中国的发展是一个持续数百年的历史过程。社会需求、国家管理、战争、农业、宗教以及对知识的追求推动了新的进步。', '文字保存了信息，建筑创造了伟大工程，医学形成了独特传统，数学解决了实际问题，而纸张和火药等技术的影响远远超出了中国。']
+    : ['El desarrollo de la antigua China fue un proceso histórico de varios siglos en el que las necesidades de la sociedad, la administración de los Estados, las guerras, la agricultura, la religión y la búsqueda de conocimientos impulsaron nuevos avances.', 'La escritura permitió conservar información; la arquitectura permitió construir grandes obras; la medicina desarrolló una tradición propia; las matemáticas resolvieron problemas prácticos; y los avances tecnológicos, como el papel y la pólvora, tuvieron consecuencias mucho más allá de China.'];
 
   return `
   <section class="section wrap">
@@ -1070,18 +1135,26 @@ function historyArticle(){
     <a href="#/subjects" class="back-link">&larr; ${t('backToMagazine')}</a>
     <div class="article-hero">
       <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()}</div>
-      <h1>${lang==='en' ? 'Ancient China: Writing, Invention and Legacy' : lang==='es' ? 'China Antigua: Escritura, Invención y Legado' : '古代中国：文字、发明与传承'}</h1>
+      <h1>${historyTitle}</h1>
       <div class="article-meta" style="margin-bottom:6px;"><span>${t('createdBy')}: ${s.responsible}</span></div>
       <p class="note-inline">${origNote}</p>
     </div>
 
-    ${chapters.map((c,i)=>`
-      <div class="chapter" style="${i===0?'border-top:none; margin-top:0; padding-top:0;':''}">
-        <div class="chapter-num">${String(i+1).padStart(2,'0')}</div>
-        <h3>${c.title}</h3>
-        ${c.html}
-      </div>
-    `).join('')}
+    <div class="timeline">
+      ${timeline.map(event=>`
+        <article class="timeline-event">
+          <div class="timeline-date">${event.date}</div>
+          <h3>${event.title}</h3>
+          ${event.html}
+        </article>
+      `).join('')}
+    </div>
+
+    <div class="timeline-conclusion">
+      <h3>${conclusionTitle}</h3>
+      <p>${conclusion[0]}</p>
+      <p style="margin-bottom:0;">${conclusion[1]}</p>
+    </div>
 
     <div class="media-row">
       <div class="media-box video-card">
