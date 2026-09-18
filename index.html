@@ -1017,11 +1017,21 @@ function entrepreneurshipArticle(){
 /* ---------- CITIZENSHIP — "El Pobre y el Rico" (real story text, ES original) ---------- */
 function citizenshipArticle(){
   const s = subjects.citizenship;
-  const origNote = lang==='en'
-    ? 'This story was written and submitted in Spanish. It is presented here in its original language rather than machine-translated, to preserve its exact meaning and tone.'
-    : lang==='es'
-    ? 'Este relato se presenta tal como fue escrito y entregado, en español.'
-    : '本故事以西班牙语原文提交，为保留原意与语气，此处按原文呈现，未做机器翻译。';
+  const story = lang==='en' ? {
+    title:'The Poor Boy and the Rich Boy', note:'This story was written and submitted in Spanish. It is presented here in its original language rather than machine-translated, to preserve its exact meaning and tone.', lede:'Two children, two opposite realities, and a chance encounter in Lima that would change the course of an entire family.',
+    chapter1:'Two Worlds', chapter1Text:`<p>Samuel is a very poor boy who lives in Lima, Peru, with his family. His family was going through a very difficult economic situation, and on some days they did not have enough money to buy food. Despite these difficulties, Samuel was a hardworking, humble child who strongly wanted to move forward. From an early age, he had learned that he needed to work hard to help his family and obtain what they needed to live.</p><p>On the other hand, Alejandro was a wealthy boy who lived with his family, which had great wealth and a comfortable financial situation. Unlike Samuel, Alejandro had the opportunity to study, travel and have everything he needed to live comfortably. Although their lives were very different, fate eventually brought their paths together.</p>`,
+    chapter2:'The Encounter', chapter2Text:`<p>One day, Alejandro traveled to Peru to learn about the country and enjoy its food. Meanwhile, Samuel was in downtown Lima selling candy for one sol so he could earn money and buy food. Samuel spent much of his time working because he needed to help his family and had few opportunities to improve his situation.</p><p>On July 6, Alejandro met Samuel at a restaurant in downtown Lima called “Los Tipancitos.” Samuel entered the restaurant to ask for food because he was hungry and did not have enough money to buy it. When Alejandro saw him, he decided to help and paid for a meal. He also wanted to learn more about Samuel’s life and the situation he and his family were experiencing.</p>`,
+    chapter3:'A New Opportunity', chapter3Text:`<p>After talking with him, Alejandro realized that Samuel really wanted to study and move forward. Therefore, he decided to give him an opportunity that would change his life. Alejandro paid for Samuel’s education in the United States and also helped Samuel and his entire family travel and find better opportunities.</p><p>Thanks to this help and his own effort, Samuel was able to study, learn new things and prepare for a better future. However, he never forgot where he came from or the difficulties he had experienced with his family. Everything that had happened taught him to value opportunities and understand the needs of people with fewer resources.</p>`,
+    quote:'Everything that had happened taught him to value opportunities and understand the needs of people with fewer resources.', chapter4:'Giving Back', chapter4Text:`<p>Over time, Samuel escaped poverty and decided to use his knowledge and experiences to help other people. He became a candidate for mayor of Cusco, Peru, intending to work for those most in need. His goal was to help many families escape poverty, improve their opportunities for education and work, and contribute to the development of his community.</p>`,
+    conclusion:'Conclusion', conclusionText:`<p>Samuel’s story shows that one opportunity can change a person’s life. It also teaches that helping others can create positive change. After receiving help when he needed it most, Samuel decided to give that help back to society by working for people who faced situations similar to his own.</p><p>Finally, his story teaches us that although people may have different lives and economic circumstances, everyone deserves opportunities to study, work and build a better future. It also reminds us of the importance of supporting those who need it most and making the most of opportunities to move forward.</p>`
+  } : {
+    title:'El Pobre y el Rico', note:'Este relato se presenta tal como fue escrito y entregado, en español.', lede:'Dos niños, dos realidades opuestas y un encuentro casual en Lima que terminaría cambiando el rumbo de una familia entera.',
+    chapter1:'Dos Mundos', chapter1Text:`<p>Samuel es un niño muy pobre que vive en la ciudad de Lima, Perú, junto con su familia. Su familia atravesaba una situación económica muy difícil, tanto que algunos días no tenían suficiente dinero para comprar comida. A pesar de las dificultades, Samuel era un niño trabajador, humilde y con muchas ganas de salir adelante. Desde pequeño había aprendido que debía esforzarse para ayudar a su familia y conseguir lo necesario para vivir.</p><p>Por otro lado, Alejandro era un niño rico que vivía con su familia, la cual tenía muchas riquezas y una buena situación económica. A diferencia de Samuel, Alejandro tenía la posibilidad de estudiar, viajar y tener todo lo necesario para vivir cómodamente. Aunque sus vidas eran muy diferentes, el destino hizo que algún día sus caminos se encontraran.</p>`,
+    chapter2:'El Encuentro', chapter2Text:`<p>Un día, Alejandro viajó a Perú para conocer el país y disfrutar de su gastronomía. Mientras tanto, Samuel se encontraba en el centro de Lima vendiendo caramelos a un sol para poder conseguir algo de dinero y comprar comida. Samuel pasaba gran parte de su tiempo trabajando, pues necesitaba ayudar a su familia y no tenía muchas oportunidades para mejorar su situación.</p><p>El 6 de julio, Alejandro conoció a Samuel en un restaurante del centro de Lima llamado “Los Tipancitos”. Samuel entró al restaurante para pedir comida, ya que tenía hambre y no contaba con suficiente dinero para comprarla. Al verlo, Alejandro decidió ayudarlo y le pagó una gran comida. Además, quiso conocer más sobre la vida de Samuel y la situación que estaba viviendo junto con su familia.</p>`,
+    chapter3:'Una Nueva Oportunidad', chapter3Text:`<p>Después de conversar con él, Alejandro se dio cuenta de que Samuel tenía muchas ganas de estudiar y salir adelante. Por eso, decidió darle una oportunidad que cambiaría su vida. Alejandro le pagó una educación en Estados Unidos y también ayudó a Samuel y a toda su familia para que pudieran viajar y tener mejores oportunidades.</p><p>Gracias a esta ayuda y a su propio esfuerzo, Samuel pudo estudiar, aprender nuevas cosas y prepararse para tener un mejor futuro. Sin embargo, nunca olvidó de dónde venía ni las dificultades que había vivido junto con su familia. Todo lo que había pasado le enseñó a valorar las oportunidades y a comprender las necesidades de las personas que tenían menos recursos.</p>`,
+    quote:'Todo lo que había pasado le enseñó a valorar las oportunidades y a comprender las necesidades de las personas que tenían menos recursos.', chapter4:'Devolviendo la Ayuda', chapter4Text:`<p>Con el paso del tiempo, Samuel logró salir de la pobreza y decidió utilizar sus conocimientos y experiencias para ayudar a otras personas. Llegó a ser candidato para alcalde de Cusco, Perú, con la intención de trabajar por las personas más necesitadas. Su objetivo era ayudar a muchas familias a salir de la pobreza, mejorar sus oportunidades de educación y trabajo y contribuir al desarrollo de su comunidad.</p>`,
+    conclusion:'Conclusión', conclusionText:`<p>De esta manera, la historia de Samuel demuestra que una oportunidad puede cambiar la vida de una persona. También enseña que ayudar a los demás puede generar cambios positivos. Samuel, después de recibir ayuda cuando más la necesitaba, decidió devolver esa ayuda a la sociedad trabajando por las personas que atravesaban situaciones parecidas a la que él había vivido.</p><p>Finalmente, su historia nos deja como enseñanza que, aunque las personas tengan vidas y situaciones económicas diferentes, todos merecen tener oportunidades para estudiar, trabajar y construir un futuro mejor. Además, nos recuerda la importancia de ser solidarios con quienes más lo necesitan y de aprovechar las oportunidades para salir adelante.</p>`
+  };
   return `
   <section class="section wrap">
     ${crumbs(s.name[lang])}
@@ -1032,16 +1042,15 @@ function citizenshipArticle(){
     </div>
 
     <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()} &middot; ${lang==='en'?'Human-Interest Story':lang==='es'?'Reportaje Humano':'人文故事'}</div>
-    <h1 style="font-size:clamp(1.9rem,4vw,2.9rem); margin:.2em 0 .2em;">El Pobre y el Rico</h1>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.9rem); margin:.2em 0 .2em;">${story.title}</h1>
     <div class="article-meta" style="margin-bottom:6px;"><span>${t('createdBy')}: ${s.responsible}</span></div>
-    <p class="note-inline" style="margin-bottom:18px;">${origNote}</p>
-    <p class="story-lede">Dos niños, dos realidades opuestas y un encuentro casual en Lima que terminaría cambiando el rumbo de una familia entera.</p>
+    <p class="note-inline" style="margin-bottom:18px;">${story.note}</p>
+    <p class="story-lede">${story.lede}</p>
 
     <div class="chapter" style="border-top:none; margin-top:10px; padding-top:0;">
       <div class="chapter-num">${t('chapterI')}</div>
-      <h3>Dos Mundos</h3>
-      <p>Samuel es un niño muy pobre que vive en la ciudad de Lima, Perú, junto con su familia. Su familia atravesaba una situación económica muy difícil, tanto que algunos días no tenían suficiente dinero para comprar comida. A pesar de las dificultades, Samuel era un niño trabajador, humilde y con muchas ganas de salir adelante. Desde pequeño había aprendido que debía esforzarse para ayudar a su familia y conseguir lo necesario para vivir.</p>
-      <p>Por otro lado, Alejandro era un niño rico que vivía con su familia, la cual tenía muchas riquezas y una buena situación económica. A diferencia de Samuel, Alejandro tenía la posibilidad de estudiar, viajar y tener todo lo necesario para vivir cómodamente. Aunque sus vidas eran muy diferentes, el destino hizo que algún día sus caminos se encontraran.</p>
+      <h3>${story.chapter1}</h3>
+      ${story.chapter1Text}
     </div>
 
     <div class="story-figures">
@@ -1051,29 +1060,26 @@ function citizenshipArticle(){
 
     <div class="chapter">
       <div class="chapter-num">${t('chapterII')}</div>
-      <h3>El Encuentro</h3>
-      <p>Un día, Alejandro viajó a Perú para conocer el país y disfrutar de su gastronomía. Mientras tanto, Samuel se encontraba en el centro de Lima vendiendo caramelos a un sol para poder conseguir algo de dinero y comprar comida. Samuel pasaba gran parte de su tiempo trabajando, pues necesitaba ayudar a su familia y no tenía muchas oportunidades para mejorar su situación.</p>
-      <p>El 6 de julio, Alejandro conoció a Samuel en un restaurante del centro de Lima llamado "Los Tipancitos". Samuel entró al restaurante para pedir comida, ya que tenía hambre y no contaba con suficiente dinero para comprarla. Al verlo, Alejandro decidió ayudarlo y le pagó una gran comida. Además, quiso conocer más sobre la vida de Samuel y la situación que estaba viviendo junto con su familia.</p>
+      <h3>${story.chapter2}</h3>
+      ${story.chapter2Text}
     </div>
 
     <div class="chapter">
       <div class="chapter-num">${t('chapterIII')}</div>
-      <h3>Una Nueva Oportunidad</h3>
-      <p>Después de conversar con él, Alejandro se dio cuenta de que Samuel tenía muchas ganas de estudiar y salir adelante. Por eso, decidió darle una oportunidad que cambiaría su vida. Alejandro le pagó una educación en Estados Unidos y también ayudó a Samuel y a toda su familia para que pudieran viajar y tener mejores oportunidades.</p>
-      <p>Gracias a esta ayuda y a su propio esfuerzo, Samuel pudo estudiar, aprender nuevas cosas y prepararse para tener un mejor futuro. Sin embargo, nunca olvidó de dónde venía ni las dificultades que había vivido junto con su familia. Todo lo que había pasado le enseñó a valorar las oportunidades y a comprender las necesidades de las personas que tenían menos recursos.</p>
-      <blockquote class="pull-quote">"Todo lo que había pasado le enseñó a valorar las oportunidades y a comprender las necesidades de las personas que tenían menos recursos."</blockquote>
+      <h3>${story.chapter3}</h3>
+      ${story.chapter3Text}
+      <blockquote class="pull-quote">"${story.quote}"</blockquote>
     </div>
 
     <div class="chapter">
       <div class="chapter-num">${lang==='en'?'Chapter IV':lang==='es'?'Capítulo IV':'第四章'}</div>
-      <h3>Devolviendo la Ayuda</h3>
-      <p>Con el paso del tiempo, Samuel logró salir de la pobreza y decidió utilizar sus conocimientos y experiencias para ayudar a otras personas. Llegó a ser candidato para alcalde de Cusco, Perú, con la intención de trabajar por las personas más necesitadas. Su objetivo era ayudar a muchas familias a salir de la pobreza, mejorar sus oportunidades de educación y trabajo y contribuir al desarrollo de su comunidad.</p>
+      <h3>${story.chapter4}</h3>
+      ${story.chapter4Text}
     </div>
 
     <div class="story-conclusion">
-      <h4 style="font-size:.76rem; letter-spacing:.1em; color:var(--accent);">${t('conclusionLbl').toUpperCase()}</h4>
-      <p>De esta manera, la historia de Samuel demuestra que una oportunidad puede cambiar la vida de una persona. También enseña que ayudar a los demás puede generar cambios positivos. Samuel, después de recibir ayuda cuando más la necesitaba, decidió devolver esa ayuda a la sociedad trabajando por las personas que atravesaban situaciones parecidas a la que él había vivido.</p>
-      <p style="margin-bottom:0;">Finalmente, su historia nos deja como enseñanza que, aunque las personas tengan vidas y situaciones económicas diferentes, todos merecen tener oportunidades para estudiar, trabajar y construir un futuro mejor. Además, nos recuerda la importancia de ser solidarios con quienes más lo necesitan y de aprovechar las oportunidades para salir adelante.</p>
+      <h4 style="font-size:.76rem; letter-spacing:.1em; color:var(--accent);">${story.conclusion.toUpperCase()}</h4>
+      ${story.conclusionText}
     </div>
   </section>`;
 }
