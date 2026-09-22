@@ -929,35 +929,111 @@ function mathArticle(){
 /* ---------- CHEMISTRY & BIOLOGY — Digestion (real text, EN original) ---------- */
 function chemistryBiologyArticle(){
   const s = subjects.chemistrybiology;
-  const origNote = lang==='en'
-    ? 'This article was written and submitted in English. It is presented here in its original language rather than machine-translated, to preserve scientific accuracy.'
-    : lang==='es'
-    ? 'Este artículo se presenta tal como fue escrito y entregado, en inglés, para conservar la precisión científica del contenido.'
-    : '本文以英语原文提交，为保证科学内容的准确性，此处按原文呈现，未做机器翻译。';
-  const title = lang==='en' ? 'Chemistry and Biology of Digestion' : lang==='es' ? 'Química y Biología de la Digestión' : '消化过程中的化学与生物学';
+  const copy = {
+    en: {
+      origNote: 'This article was written and submitted in English. It is presented here in its original language rather than machine-translated, to preserve scientific accuracy.',
+      title: 'Chemistry and Biology of Digestion',
+      eyebrow: 'CHEMISTRY & BIOLOGY',
+      intro: 'Digestion is a process in which chemistry and biology work together. The digestive system transforms food through various chemical reactions, primarily with the help of enzymes and substances such as hydrochloric acid. These reactions break down large nutrients into smaller molecules that the body can absorb and use.',
+      mouthTitle: 'CHEMICAL REACTIONS IN THE MOUTH',
+      mouthText1: 'Digestion begins in the mouth with saliva, which contains an enzyme called amylase. This enzyme acts on the starch found in certain foods. Amylase breaks down large starch molecules into smaller ones, such as maltose.',
+      mouthEquation: 'Starch &rarr; maltose + other small molecules',
+      mouthText2: 'For this reason, the mouth not only performs a mechanical function by chewing but also initiates chemical digestion.',
+      stomachTitle: 'CHEMICAL REACTIONS IN THE STOMACH',
+      stomachText1: 'Hydrochloric acid (HCl) is produced in the stomach, creating a highly acidic environment with a pH of approximately 1 to 3. The acid helps change the structure of proteins and allows the enzyme pepsin to function properly; the main function of HCl is to create the conditions necessary for pepsin to act.',
+      stomachEquation: 'Proteins &rarr; smaller molecules',
+      stomachText2: 'Furthermore, the acidic environment helps eliminate any microorganisms that could have entered the body through food.',
+      carbsTitle: 'DIGESTION OF CARBOHYDRATES',
+      carbsText1: 'After amylase begins to act in the mouth, digestion continues principally in the small intestine. Enzymes from the pancreas and the intestine complete the breakdown of carbohydrates into small molecules, especially monosaccharides such as glucose.',
+      carbsEquation: 'Carbohydrates &rarr; small molecules &rarr; glucose',
+      carbsText2: 'Glucose can be absorbed through the walls of the small intestine and enter the bloodstream.',
+      intestineTitle: 'CHEMICAL REACTIONS IN THE SMALL INTESTINE',
+      intestineText: 'The pancreas releases enzymes that break down carbohydrates, protein and fats. Then, bile produced by the liver helps break down fats into small droplets (emulsification). After these reactions take place, glucose, amino acids and fatty acids are produced, and these can be absorbed by the body.',
+      typesTitle: 'TYPES OF CHEMICAL REACTIONS FOUND IN THE DIGESTIVE SYSTEM',
+      typesText1: 'Some of the chemical reactions reviewed, such as decomposition reactions, can generally be related to the transformation of large molecules into simpler, smaller molecules; however, most of these types of reactions are hydrolysis reactions.',
+      typesText2: '<strong>Neutralization</strong> — Stomach acid and basic substances in the intestine can react to bring acid levels down.',
+      typesText3: '<strong>Enzymatic reactions</strong> — Enzymes such as amylase, pepsin and lipase speed up digestive reactions.',
+      conclusionTitle: 'CONCLUSION',
+      conclusionText: 'The main chemical reactions that occur in the digestive system are those able to break large molecules into smaller ones. Enzymes such as amylase and pepsin, and substances such as hydrochloric acid, are involved in this process, and thanks to these reactions, nutrients can be absorbed and used by our bodies.'
+    },
+    es: {
+      origNote: 'Este artículo se presenta tal como fue escrito y entregado, en inglés, para conservar la precisión científica del contenido.',
+      title: 'Química y Biología de la Digestión',
+      eyebrow: 'QUÍMICA Y BIOLOGÍA',
+      intro: 'La digestión es un proceso en el que la química y la biología trabajan juntas. El sistema digestivo transforma los alimentos mediante diversas reacciones químicas, principalmente con la ayuda de enzimas y sustancias como el ácido clorhídrico. Estas reacciones descomponen nutrientes grandes en moléculas más pequeñas que el cuerpo puede absorber y utilizar.',
+      mouthTitle: 'REACCIONES QUÍMICAS EN LA BOCA',
+      mouthText1: 'La digestión comienza en la boca con la saliva, que contiene una enzima llamada amilasa. Esta enzima actúa sobre el almidón presente en ciertos alimentos. La amilasa descompone moléculas grandes de almidón en otras más pequeñas, como la maltosa.',
+      mouthEquation: 'Almidón &rarr; maltosa + otras moléculas pequeñas',
+      mouthText2: 'Por esta razón, la boca no solo realiza una función mecánica al masticar, sino que también inicia la digestión química.',
+      stomachTitle: 'REACCIONES QUÍMICAS EN EL ESTÓMAGO',
+      stomachText1: 'El ácido clorhídrico (HCl) se produce en el estómago y crea un ambiente altamente ácido con un pH de aproximadamente 1 a 3. El ácido ayuda a cambiar la estructura de las proteínas y permite que la enzima pepsina funcione correctamente; la función principal del HCl es crear las condiciones necesarias para que la pepsina actúe.',
+      stomachEquation: 'Proteínas &rarr; moléculas más pequeñas',
+      stomachText2: 'Además, el ambiente ácido ayuda a eliminar microorganismos que podrían haber ingresado al cuerpo a través de los alimentos.',
+      carbsTitle: 'DIGESTIÓN DE LOS CARBOHIDRATOS',
+      carbsText1: 'Después de que la amilasa comienza a actuar en la boca, la digestión continúa principalmente en el intestino delgado. Las enzimas del páncreas y del intestino completan la descomposición de los carbohidratos en moléculas pequeñas, especialmente monosacáridos como la glucosa.',
+      carbsEquation: 'Carbohidratos &rarr; moléculas pequeñas &rarr; glucosa',
+      carbsText2: 'La glucosa puede ser absorbida a través de las paredes del intestino delgado y entrar al torrente sanguíneo.',
+      intestineTitle: 'REACCIONES QUÍMICAS EN EL INTESTINO DELGADO',
+      intestineText: 'El páncreas libera enzimas que descomponen carbohidratos, proteínas y grasas. Luego, la bilis producida por el hígado ayuda a descomponer las grasas en pequeñas gotas (emulsificación). Después de estas reacciones, se producen glucosa, aminoácidos y ácidos grasos, y estos pueden ser absorbidos por el cuerpo.',
+      typesTitle: 'TIPOS DE REACCIONES QUÍMICAS EN EL SISTEMA DIGESTIVO',
+      typesText1: 'Algunas de las reacciones químicas revisadas, como las reacciones de descomposición, se pueden relacionar generalmente con la transformación de moléculas grandes en otras más simples y pequeñas; sin embargo, la mayoría de este tipo de reacciones son reacciones de hidrólisis.',
+      typesText2: '<strong>Neutralización</strong> — El ácido del estómago y las sustancias básicas en el intestino pueden reaccionar para reducir los niveles de acidez.',
+      typesText3: '<strong>Reacciones enzimáticas</strong> — Enzimas como la amilasa, la pepsina y la lipasa aceleran las reacciones digestivas.',
+      conclusionTitle: 'CONCLUSIÓN',
+      conclusionText: 'Las principales reacciones químicas que ocurren en el sistema digestivo son las que logran romper moléculas grandes en otras más pequeñas. Enzimas como la amilasa y la pepsina, y sustancias como el ácido clorhídrico, intervienen en este proceso, y gracias a estas reacciones, los nutrientes pueden ser absorbidos y utilizados por nuestro cuerpo.'
+    },
+    zh: {
+      origNote: '本文以英语原文提交，为保证科学内容的准确性，此处按原文呈现，未做机器翻译。',
+      title: '消化过程中的化学与生物学',
+      eyebrow: '化学与生物',
+      intro: '消化是一个化学与生物共同发挥作用的过程。消化系统通过各种化学反应来改变食物，主要依靠酶和盐酸等物质。这些反应将大分子营养物分解成更小的分子，供身体吸收和利用。',
+      mouthTitle: '口腔中的化学反应',
+      mouthText1: '消化始于口腔，唾液中含有一种叫做淀粉酶的酶。该酶会作用于某些食物中的淀粉。淀粉酶会将大分子的淀粉分解成更小的分子，例如麦芽糖。',
+      mouthEquation: '淀粉 &rarr; 麦芽糖 + 其他小分子',
+      mouthText2: '因此，口腔不仅负责咀嚼这种机械功能，还会开始化学消化。',
+      stomachTitle: '胃中的化学反应',
+      stomachText1: '胃中会产生盐酸（HCl），形成一个酸性很强的环境，pH 约为 1 到 3。盐酸有助于改变蛋白质的结构，并使酶胃蛋白酶正常发挥作用；HCl 的主要功能是为胃蛋白酶的活动创造必要条件。',
+      stomachEquation: '蛋白质 &rarr; 更小的分子',
+      stomachText2: '此外，酸性环境还可以帮助清除可能通过食物进入身体的微生物。',
+      carbsTitle: '碳水化合物的消化',
+      carbsText1: '淀粉酶开始在口腔中发挥作用后，消化主要在小肠继续进行。胰腺和肠道中的酶会进一步将碳水化合物分解成小分子，尤其是葡萄糖等单糖。',
+      carbsEquation: '碳水化合物 &rarr; 小分子 &rarr; 葡萄糖',
+      carbsText2: '葡萄糖可以通过小肠壁被吸收，并进入血液循环。',
+      intestineTitle: '小肠中的化学反应',
+      intestineText: '胰腺释放的酶会分解碳水化合物、蛋白质和脂肪。随后，肝脏分泌的胆汁会帮助将脂肪分解成小液滴（乳化）。在这些反应发生后，会产生葡萄糖、氨基酸和脂肪酸，这些物质可以被身体吸收。',
+      typesTitle: '消化系统中存在的化学反应类型',
+      typesText1: '一些已介绍的化学反应，例如分解反应，通常与大分子转变为更简单、更小的分子有关；不过，这类反应中大多数更接近水解反应。',
+      typesText2: '<strong>中和反应</strong> — 胃酸和肠道中的碱性物质可以发生反应，降低酸度。',
+      typesText3: '<strong>酶促反应</strong> — 淀粉酶、胃蛋白酶和脂肪酶等酶能加速消化反应。',
+      conclusionTitle: '结论',
+      conclusionText: '消化系统中发生的主要化学反应，是那些能够将大分子分解成更小分子的反应。淀粉酶、胃蛋白酶和盐酸等物质参与了这一过程；正是由于这些反应，我们的身体才能吸收并利用营养物质。'
+    }
+  };
+
+  const content = copy[lang] || copy.en;
 
   return `
   <section class="section wrap">
     ${crumbs(s.name[lang])}
     <a href="#/subjects" class="back-link">&larr; ${t('backToMagazine')}</a>
     <div class="article-hero">
-      <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()} &middot; ${lang==='en'?'CHEMISTRY & BIOLOGY':lang==='es'?'QUÍMICA Y BIOLOGÍA':'化学与生物'}</div>
-      <h1>${title}</h1>
+      <div class="article-eyebrow">${t('subjectsCrumb').toUpperCase()} &middot; ${content.eyebrow}</div>
+      <h1>${content.title}</h1>
       <div class="article-meta" style="margin-bottom:6px;"><span>${t('createdBy')}: ${s.responsible}</span></div>
-      <p class="note-inline">${origNote}</p>
+      <p class="note-inline">${content.origNote}</p>
     </div>
 
     <div class="article-figure">${img('images/chemistry-biology-digestive-system.png', 'Diagram of the human digestive system', '', t('imageComingSoon'), false)}</div>
 
     <div class="article-body">
-      <p>Digestion is a process in which chemistry and biology work together. The digestive system transforms food through various chemical reactions, primarily with the help of enzymes and substances such as hydrochloric acid. These reactions break down large nutrients into smaller molecules that the body can absorb and use.</p>
+      <p>${content.intro}</p>
     </div>
 
     <div class="solution-block">
-      <h4>CHEMICAL REACTIONS IN THE MOUTH</h4>
-      <p>Digestion begins in the mouth with saliva, which contains an enzyme called amylase. This enzyme acts on the starch found in certain foods. Amylase breaks down large starch molecules into smaller ones, such as maltose.</p>
-      <div class="math-block">Starch &rarr; maltose + other small molecules</div>
-      <p>For this reason, the mouth not only performs a mechanical function by chewing but also initiates chemical digestion.</p>
+      <h4>${content.mouthTitle}</h4>
+      <p>${content.mouthText1}</p>
+      <div class="math-block">${content.mouthEquation}</div>
+      <p>${content.mouthText2}</p>
     </div>
 
     <div class="story-figures">
@@ -966,39 +1042,44 @@ function chemistryBiologyArticle(){
     </div>
 
     <div class="solution-block">
-      <h4>CHEMICAL REACTIONS IN THE STOMACH</h4>
-      <p>Hydrochloric acid (HCl) is produced in the stomach, creating a highly acidic environment with a pH of approximately 1 to 3. The acid helps change the structure of proteins and allows the enzyme pepsin to function properly; the main function of HCl is to create the conditions necessary for pepsin to act.</p>
-      <div class="math-block">Proteins &rarr; smaller molecules</div>
-      <p>Furthermore, the acidic environment helps eliminate any microorganisms that could have entered the body through food.</p>
+      <h4>${content.stomachTitle}</h4>
+      <p>${content.stomachText1}</p>
+      <div class="math-block">${content.stomachEquation}</div>
+      <p>${content.stomachText2}</p>
     </div>
 
     <div class="solution-block">
-      <h4>DIGESTION OF CARBOHYDRATES</h4>
-      <p>After amylase begins to act in the mouth, digestion continues principally in the small intestine. Enzymes from the pancreas and the intestine complete the breakdown of carbohydrates into small molecules, especially monosaccharides such as glucose.</p>
-      <div class="math-block">Carbohydrates &rarr; small molecules &rarr; glucose</div>
-      <p>Glucose can be absorbed through the walls of the small intestine and enter the bloodstream.</p>
+      <h4>${content.carbsTitle}</h4>
+      <p>${content.carbsText1}</p>
+      <div class="math-block">${content.carbsEquation}</div>
+      <p>${content.carbsText2}</p>
     </div>
 
     <div class="solution-block">
-      <h4>CHEMICAL REACTIONS IN THE SMALL INTESTINE</h4>
-      <p>The pancreas releases enzymes that break down carbohydrates, protein and fats. Then, bile produced by the liver helps break down fats into small droplets (emulsification). After these reactions take place, glucose, amino acids and fatty acids are produced, and these can be absorbed by the body.</p>
+      <h4>${content.intestineTitle}</h4>
+      <p>${content.intestineText}</p>
     </div>
 
     <div class="solution-block">
-      <h4>TYPES OF CHEMICAL REACTIONS FOUND IN THE DIGESTIVE SYSTEM</h4>
-      <p>Some of the chemical reactions reviewed, such as decomposition reactions, can generally be related to the transformation of large molecules into simpler, smaller molecules; however, most of these types of reactions are hydrolysis reactions.</p>
-      <p><strong>Neutralization</strong> — Stomach acid and basic substances in the intestine can react to bring acid levels down.</p>
-      <p><strong>Enzymatic reactions</strong> — Enzymes such as amylase, pepsin and lipase speed up digestive reactions.</p>
+      <h4>${content.typesTitle}</h4>
+      <p>${content.typesText1}</p>
+      <p>${content.typesText2}</p>
+      <p>${content.typesText3}</p>
     </div>
 
     <div class="story-conclusion">
-      <h4 style="font-size:.76rem; letter-spacing:.1em; color:var(--accent);">CONCLUSION</h4>
-      <p style="margin-bottom:0;">The main chemical reactions that occur in the digestive system are those able to break large molecules into smaller ones. Enzymes such as amylase and pepsin, and substances such as hydrochloric acid, are involved in this process, and thanks to these reactions, nutrients can be absorbed and used by our bodies.</p>
+      <h4 style="font-size:.76rem; letter-spacing:.1em; color:var(--accent);">${content.conclusionTitle}</h4>
+      <p style="margin-bottom:0;">${content.conclusionText}</p>
     </div>
 
     <div class="media-box">
       <h4>${t('sources').toUpperCase()}</h4>
-      <p class="coming-soon">${t('sourcesEmpty')}</p>
+      <ul class="sources-list">
+        <li>National Center for Biotechnology Information (NCBI). (n.d.). <em>Digestion and absorption</em>. <a href="https://www.ncbi.nlm.nih.gov/books/NBK54129/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">ncbi.nlm.nih.gov</a></li>
+        <li>Encyclopedia Britannica. (n.d.). <em>Digestion</em>. <a href="https://www.britannica.com/science/digestion" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">britannica.com</a></li>
+        <li>MedlinePlus. (n.d.). <em>How the digestive system works</em>. <a href="https://medlineplus.gov/ency/anatomyvideos/000040.htm" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">medlineplus.gov</a></li>
+        <li>OpenStax. (n.d.). <em>Biology 2e: The digestive system</em>. <a href="https://openstax.org/books/biology-2e/pages/34-1-digestive-systems" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">openstax.org</a></li>
+      </ul>
     </div>
   </section>`;
 }
